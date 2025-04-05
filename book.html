@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Story Book</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.2/dist/lottie-player.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Georgia', serif;
+        }
+
+        .book-page {
+            width: 900px;
+            height: 600px;
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            display: grid;
+            grid-template-columns: 150px 1fr 150px;
+            grid-template-rows: auto auto auto;
+            gap: 20px;
+        }
+
+        .title {
+            font-size: 2.5em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 1.5s ease-out;
+            grid-column: 1 / -1;
+            grid-row: 1;
+        }
+
+        .story-text {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+            animation-delay: 1s;
+            grid-column: 2;
+            grid-row: 2;
+            text-align: center;
+        }
+
+        .lottie-left {
+            grid-column: 1;
+            grid-row: 2;
+            opacity: 0;
+            animation: fadeInLeft 2s ease-out forwards;
+            animation-delay: 2s;
+            align-self: center;
+        }
+
+        .lottie-right {
+            grid-column: 3;
+            grid-row: 2;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+            animation-delay: 2s;
+            align-self: center;
+        }
+
+        .lottie-bottom {
+            grid-column: 2;
+            grid-row: 3;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+            animation-delay: 2s;
+            justify-self: center;
+            width: 150px;
+            height: 150px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scaleX(-1);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scaleX(-1);
+            }
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.8em;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="book-page">
+        <h1 class="title">The Garden of Dreams</h1>
+        
+        <lottie-player class="lottie-left" src="./lottie/flower3.json" background="transparent" speed="1" loop autoplay></lottie-player>
+        
+        <div class="story-text">
+            <p>In a magical garden where dreams come to life, three special flowers bloomed under the moonlight. Each flower had its own unique dance, swaying to the rhythm of the night.</p>
+            <p>The first flower danced with grace, its petals twirling like ballerinas. The second flower moved with joy, bouncing to an invisible melody. And the third flower swayed gently, as if whispering secrets to the wind.</p>
+        </div>
+
+        <lottie-player class="lottie-right" src="./lottie/flower2.json" background="transparent" speed="1" loop autoplay></lottie-player>
+
+        <lottie-player class="lottie-bottom" src="./lottie/flower1.json" background="transparent" speed="1" autoplay></lottie-player>
+
+        <div class="page-number">Page 1</div>
+    </div>
+</body>
+</html> 
